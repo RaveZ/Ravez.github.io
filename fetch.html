@@ -45,8 +45,11 @@
   <h1>HELLO</h1>
 
   <script>
+    // fetch("https://reqres.in/api/users")
+    //     .then(respon => console.log(respon))
     fetch("https://reqres.in/api/users")
-        .then(respon => console.log(respon))
+        .then(res => res.json())
+        .then(data => console.log(data))
 
 
 
