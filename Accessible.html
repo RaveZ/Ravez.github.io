@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Write Title Here</title>
+<style>
+  @media only screen and (max-width: 600px){
+    h1{
+      color: white;
+    }
+  }    
+  
+  @media only screen and (min-width: 601px){
+    h1{
+      color: blue;
+    }
+  }  
+  
+  .flex-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;	/* Other options: wrap */
+  background-color: darkblue;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .flex-container > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  }
+
+  input:focus{
+    outline: 3px solid orange;
+  }
+  input:hover, :focus {
+  background: #c0ffee;
+}
+
+  
+
+</style>
+</head>
+<body>
+  <h1>HELLO</h1>
+  <form action="/action_page.php">
+    First name: <input type="text" name="fname" tabindex="1" ><br>
+    Last name: <input type="text" name="lname" tabindex="3"><br>
+    Another Text: <input type="text" name="myTextInput" id="myTextInput" tabindex="2"><br>
+    <input type="submit">
+  </form>
+
+  <p id = "here"></p>
+
+  <script>
+    function pindah(){
+        document.getElementById("myTextInput").focus();
+    }
+
+  </script>
+
+  <button onclick="pindah()">click to focus</button>
+  
+</body>
+</html>

@@ -43,13 +43,41 @@
 </head>
 <body>
   <h1>HELLO</h1>
+  
+  <p id = "here"></p>
 
   <script>
-    // fetch("https://reqres.in/api/users")
-    //     .then(respon => console.log(respon))
-    fetch("https://reqres.in/api/users")
-        .then(res => res.json())
-        .then(data => console.log(data))
+    fetch('https://reqres.in/api/users', {
+        method: 'get'
+    })
+    .then(f => f.json())
+    .then(r => console.log(r))
+    .catch(function(err) {
+        console.log("terjadi error")
+    });
+
+
+    //using https://reqres.in/api/users
+    async function foo() {
+        let obj;
+        const res = await fetch('https://reqres.in/api/users')
+        obj = await res.json();
+        return obj;
+    }
+
+    foo().then(dt => {					
+        var d;
+        for(i=0; i < dt["data"].length; i++){
+            //d += data[i];
+            console.log(dt.data[i].email)
+            
+            document.getElementById("here").innerHTML += dt.data[i].first_name 
+            document.getElementById("here").innerHTML += dt.data[i].last_name
+            document.getElementById("here").innerHTML += "<img src='"+dt.data[i].avatar+"'><br>"
+        }
+    });
+
+
 
 
 

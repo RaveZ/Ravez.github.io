@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <style>
+      /* Light mode styles */
+      body {
+        background-color: #f8f8f8;
+        color: #333;
+      }
+      h1 {
+        color: #333;
+      }
+      p {
+        margin-bottom: 20px;
+      }
+      
+      /* Dark mode styles */
+      body.dark-mode {
+        background-color: #333;
+        color: #f8f8f8;
+      }
+      body.dark-mode h1 {
+        color: #f8f8f8;
+      }
+      body.dark-mode p {
+        color: #f8f8f8;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <h1>Welcome to my Homepage</h1>
+    <p>This is my homepage. It's a work in progress, so please bear with me while I add more content.</p>
+    <script>
+      function toggleDarkMode() {
+        const body = document.querySelector('body');
+        body.classList.toggle('dark-mode');
+      }
+    </script>
+  </body>
+</html>

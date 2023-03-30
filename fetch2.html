@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Write Title Here</title>
+<link rel="stylesheet" media="(orientation: portrait)" href="portrait.css">
+<link rel="stylesheet" media="(orientation: landscape)" href="landscape.css">
+<style>
+  @media only screen and (max-width: 600px){
+    h1{
+      color: white;
+    }
+  }    
+  
+  @media only screen and (min-width: 601px){
+    h1{
+      color: blue;
+    }
+  }  
+  
+  .flex-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;	/* Other options: wrap */
+  background-color: darkblue;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .flex-container > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  }
+
+  
+
+</style>
+</head>
+<body>
+  <h1>HELLO</h1>
+  
+  <p id = "here"></p>
+
+  <script>
+    fetch('https://randomuser.me/api/?results=10', {
+        method: 'get'
+    })
+    .then(f => f.json())
+    .then(r => console.log(r))
+    .catch(function(err) {
+        console.log("terjadi error")
+    });
+
+
+    //using 'https://randomuser.me/api/?results=10
+    async function foo() {
+        let obj;
+        const res = await fetch('https://randomuser.me/api/?results=10')
+        obj = await res.json();
+        return obj;
+    }
+
+    foo().then(dt => {					
+        var d;
+        for(i=0; i < dt["results"].length; i++){
+            //d += data[i];
+            console.log(dt.results[i].email)
+            
+            document.getElementById("here").innerHTML += dt.results[i].name.first+" "
+            document.getElementById("here").innerHTML += dt.results[i].name.last+"<br>"
+            document.getElementById("here").innerHTML += "<img src='"+dt.results[i].picture.medium+"'><br>"
+        }
+    });
+
+
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+/* Set background color and font color for navbar */
+.navbar {
+    background-color: #f8f9fa;
+    color: #333;
+  }
+  
+  /* Set font color for active menu item */
+  .navbar-nav .nav-item.active .nav-link {
+    color: #007bff;
+  }
+  
+  /* Set margin for container */
+  .container {
+    margin-top: 50px;
+  }
+  
+  /* Set padding for container columns */
+  .col-md-6 {
+    padding: 20px;
+  }
+  
+  /* Set maximum width for images in container */
+  img {
+    max-width: 100%;
+  }
+  
