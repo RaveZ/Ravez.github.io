@@ -54,42 +54,15 @@ self.addEventListener('install', function(event) {
   
 
   
-
-//   self.addEventListener('fetch', function(event) {
-//     event.respondWith(
-//       caches.open(CACHE_DYNAMIC_NAME)
-//         .then(function(cache) {
-//           return fetch(event.request)
-//             .then(function(res) {
-//               cache.put(event.request, res.clone());
-//               return res;
-//             });
-//         })
-//     );
-//   });
-  
-  
-self.addEventListener('fetch', event => {
+  self.addEventListener('fetch', function(event) {
     event.respondWith(
-      caches.match(event.request)
-        .then(response => {
-          if (response) {
-            return response;
-          }
-  
+      caches.open(CACHE_DYNAMIC_NAME)
+        .then(function(cache) {
           return fetch(event.request)
-            .then(response => {
-              const responseClone = response.clone();
-  
-              caches.open(CACHE_NAME)
-                .then(cache => {
-                  cache.put(event.request, responseClone);
-                });
-  
-              return response;
-            })
-            .catch(error => console.error('Error fetching file:', error));
+            .then(function(res) {
+              cache.put(event.request, res.clone());
+              return res;
+            });
         })
-        .catch(error => console.error('Error matching file:', error))
     );
   });
