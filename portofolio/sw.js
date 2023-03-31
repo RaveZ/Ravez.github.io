@@ -53,14 +53,7 @@ self.addEventListener('install', function(event) {
   });
   
 
-  self.addEventListener('fetch', function(event) {
-    event.respondWith(
-      caches.match(event.request)
-        .then(function(res) {
-          return res;
-        })
-    );
-  });
+  
 
   self.addEventListener('fetch', function(event) {
     event.respondWith(
