@@ -1,0 +1,45 @@
+{
+    "name": "Portofolio Web Apps",
+    "short_name": "PWAGram",
+    "icons": [
+      {
+        "src": "/images/logo.png",
+        "type": "image/png",
+        "sizes": "48x48"
+      },
+      {
+        "src": "/images/logo512.ico",
+        "type": "image/png",
+        "sizes": "512x512"
+      },
+      {
+        "src": "/images/logo256.ico",
+        "type": "image/png",
+        "sizes": "256x256"
+      },
+      {
+        "src": "/images/logo96.ico",
+        "type": "image/png",
+        "sizes": "96x96"
+      },
+      {
+        "src": "/images/logo96.ico",
+        "type": "image/png",
+        "sizes": "64x64"
+      },{
+        "src": "/images/logo96.ico",
+        "type": "image/png",
+        "sizes": "48x48"
+      }
+    ],
+    "start_url": "/portofolio/index.html",
+    "scope": ".",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "background_color": "#fff",
+    "theme_color": "#3f51b5",
+    "description": "mobile app portofolio",
+    "dir": "ltr",
+    "lang": "en-US"
+  }
+  
