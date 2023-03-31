@@ -1,11 +1,3 @@
-self.addEventListener("install", event => {
-    console.log("Service worker installed");
- });
- self.addEventListener("activate", event => {
-    console.log("Service worker activated");
- });
-
-  
 self.addEventListener('install', function(event) {
     event.waitUntil(
       caches.open('first-app')
