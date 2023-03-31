@@ -4,8 +4,8 @@ self.addEventListener('install', function(event) {
         .then(function(cache) {
           cache.addAll([
             '/',
-            'index.html',
-            'blog.html',
+            '/index.html',
+            '/blog.html',
             '/contact.html',
             '/about.html',
             '/app.js',
@@ -55,17 +55,41 @@ self.addEventListener('install', function(event) {
 
   
 
-  self.addEventListener('fetch', function(event) {
+//   self.addEventListener('fetch', function(event) {
+//     event.respondWith(
+//       caches.open(CACHE_DYNAMIC_NAME)
+//         .then(function(cache) {
+//           return fetch(event.request)
+//             .then(function(res) {
+//               cache.put(event.request, res.clone());
+//               return res;
+//             });
+//         })
+//     );
+//   });
+  
+  
+self.addEventListener('fetch', event => {
     event.respondWith(
-      caches.open(CACHE_DYNAMIC_NAME)
-        .then(function(cache) {
+      caches.match(event.request)
+        .then(response => {
+          if (response) {
+            return response;
+          }
+  
           return fetch(event.request)
-            .then(function(res) {
-              cache.put(event.request, res.clone());
-              return res;
-            });
+            .then(response => {
+              const responseClone = response.clone();
+  
+              caches.open(CACHE_NAME)
+                .then(cache => {
+                  cache.put(event.request, responseClone);
+                });
+  
+              return response;
+            })
+            .catch(error => console.error('Error fetching file:', error));
         })
+        .catch(error => console.error('Error matching file:', error))
     );
   });
-  
-  
