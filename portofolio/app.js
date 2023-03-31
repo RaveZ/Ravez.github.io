@@ -1,4 +1,4 @@
-navigator.serviceWorker.register('/portofolio/sw.js');
+navigator.serviceWorker.register('sw.js');
 
 
 
