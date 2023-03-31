@@ -1,4 +1,4 @@
-
+var CACHE_NAME = 'apps';
 var urlsToCache = [
   '/',
   '/index.html',
@@ -60,7 +60,7 @@ var urlsToCache = [
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open('Apps')
+    caches.open(CACHE_NAME)
       .then(function(cache) {
         cache.addAll(urlsToCache);
       })
